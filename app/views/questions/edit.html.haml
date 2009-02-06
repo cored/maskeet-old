@@ -1,0 +1,15 @@
+%h1
+  Questions controller, edit action
+%p
+  Edit this file in
+  %tt
+    app/views/questions/edit.html.erb
+= error_messages_for @question
+
+= form_for(@question, :action => url(:question, @question)) do
+  %p
+    = submit "Update"
+
+= link_to 'Show', url(:question, @question)
+|
+= link_to 'Back', url(:questions)
