@@ -5,7 +5,7 @@ class Question
   property :title, String
   property :body, String
 
-  has n, :answer
+  has n, :answers
 
   belongs_to :user
 

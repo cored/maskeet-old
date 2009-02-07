@@ -16,8 +16,8 @@ class User
   property :first_name, String
   property :last_name, String
 
-  has n, :question
-  has n, :answer
-  has n, :relevancy
-  
+  has n, :questions
+  has n, :answers
+  has n, :relevancies
+
 end

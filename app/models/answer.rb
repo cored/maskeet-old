@@ -4,7 +4,7 @@ class Answer
   property :id, Serial
   property :body, String
 
-  has n, :relevancy
+  has n, :relevancies
   
   belongs_to :question
   belongs_to :user
