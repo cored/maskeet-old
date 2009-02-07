@@ -1,9 +1,15 @@
-%h1
-  Questions controller, show action
-%p
-  Edit this file in
-  %tt
-    app/views/questions/show.html.erb
+%table
+  %tbody
+    %tr
+      %th Id:
+      %td= @question.id  
+    %tr
+      %th Title:
+      %td= @question.title
+    %tr
+      %th Body:
+      %td= @question.body
+
 
 = link_to 'Edit',  url(:edit_question,  @question)
 |
