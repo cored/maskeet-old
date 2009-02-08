@@ -19,5 +19,7 @@ class User
   has n, :questions
   has n, :answers
   has n, :relevancies
+  has n, :interests
+  has n, :questions, :through => :interests
 
 end

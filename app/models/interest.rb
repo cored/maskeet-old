@@ -1,7 +1,8 @@
 class Interest
   include DataMapper::Resource
   
-  property :id, Serial
+  property :user_id, Integer, :key => true
+  property :question_id, Integer, :key => true 
 
   belongs_to :question
   belongs_to :user
