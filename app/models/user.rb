@@ -22,4 +22,6 @@ class User
   has n, :interests
   has n, :questions, :through => :interests
 
+  timestamps :at
+
 end

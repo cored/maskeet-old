@@ -11,4 +11,6 @@ class Question
 
   belongs_to :user
 
+  timestamps :at
+
 end

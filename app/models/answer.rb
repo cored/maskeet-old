@@ -9,4 +9,6 @@ class Answer
   belongs_to :question
   belongs_to :user
 
+  timestamps :at
+
 end

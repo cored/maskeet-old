@@ -7,5 +7,7 @@ class Relevancy
   belongs_to :answer
   belongs_to :user
 
+  timestamps :at
+
 
 end
