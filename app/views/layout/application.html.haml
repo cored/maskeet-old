@@ -2,8 +2,20 @@
 %html{ html_attrs("en_us") }
   %head
     %title
-      Fresh Merb App
+      Maskeet 
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "content-type" }/
     %link{ :href => "/stylesheets/master.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
+    %link{ :href => "/stylesheets/layout.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
+    %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }
   %body
-    = catch_content :for_layout
+    %div#header 
+      %ul
+        %li= link_to 'about', url(:questions)
+      %h1= link_to 'logo', url(:questions)
+    %div#content  
+      %div#content_main 
+        = catch_content :for_layout
+        %div.verticalalign
+        
+      %div#content_bar
+        %div.verticalalign 
