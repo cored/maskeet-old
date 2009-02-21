@@ -9,12 +9,20 @@
 # 
 # You will need to setup your database and create a user.
 class User
+  
   include DataMapper::Resource
   
-  property :id,     Serial
-  property :login,  String
+  # properties
+  
+  property :id,         Serial
+  
+  property :login,      String
   property :first_name, String
-  property :last_name, String
+  property :last_name,  String
+
+  timestamps :at
+
+  # associations
 
   has n, :questions
   has n, :answers
@@ -22,6 +30,5 @@ class User
   has n, :interests
   has n, :questions, :through => :interests
 
-  timestamps :at
 
 end

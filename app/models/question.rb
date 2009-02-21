@@ -1,16 +1,24 @@
 class Question
+  
   include DataMapper::Resource
   
-  property :id, Serial
-  property :title, String
-  property :body, String
+  # properties
+  
+  property :id,    Serial
+
+  property :user_id, Integer, :nullable => false
+  
+  property :title, String, :nullable => false, :length => (1..255)
+  property :body,  Text
+
+  timestamps :at
+
+  # associations
+  
+  belongs_to :user
 
   has n, :answers
   has n, :interests
   has n, :users, :through => :interests
-
-  belongs_to :user
-
-  timestamps :at
 
 end
