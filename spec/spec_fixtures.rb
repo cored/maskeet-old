@@ -1,60 +1,39 @@
-include DataMapper::Sweatshop::Unique
-
 User.fix(:anonymous) {{
-  :login      => "anonymous",
-  :first_name => "Anonymous",
-  :last_name  => "Coward"
+  :login => 'anonymous',
+  :first_name => 'Anonymous',
+  :last_name => 'Coward'
 }}
 
-User.fix(:cored) {{
-  :login      => "cored",
-  :first_name => "Rafael",
-  :last_name  => "George"
-
+User.fix {{
+  :login =>  first_name = Randgen.first_name,
+  :last_name  =>  last_name = Randgen.last_name,
+  :login =>  "#{first_name.downcase}#{last_name[0].chr}"
 }}
 
-User.fix(:dobot) {{
-  :login      => "dobot",
-  :first_name => "Bob",
-  :last_name  => "Do"
+Question.fix {{
+  :title => /[:sentence:]{4,10}/.gen.gsub(/\.$/, '?'),
+  :user_id   => User.pick.id,
+  :body   => /[:paragraph:]/.gen
 }}
 
-Question.fix(:question1) {{
-  :user  => :cored
-  :title => /[:sentence:]/.gen,
-  :body  => /[:sentence:]/.gen
+Question.fix(:anonymous) {{
+  :title  => /[:sentence:]{4,10}/.gen.gsub(/\.$/, '?'),
+  :body   => /[:paragraph:]/.gen,
+  :user_id   => User.pick(:anonymous).id
 }}
 
-Question.fix(:question2) {{
-  :user  => :anonymous
-  :title => /[:sentence:]/.gen,
-  :body  => /[:sentence:]/.gen
-}}
+Interest.fix { DataMapper::Sweatshop.unique {{
+  :user     => User.pick,
+  :question => Question.pick
+}}}
 
-Question.fix(:question3) {{
-  :user  => :dobot
-  :title => /[:sentence:]/.gen,
-  :body  => /[:sentence:]/.gen
-}}
+##Population
 
-Interest.fix(:interest1) {{
-  :user     => :cored,
-  :question => :question1
-}}
+User.gen(:anonymous) #create the anonymous user
+5.of { User.gen }     #randomly create 5 users
 
+10.of { Question.gen }              #create 10 questions with random users (not the anonymous user)
+10.of { Question.gen(:anonymous) }  #create 10 questions with the anonymous user
 
-Interest.fix(:interest2) {{
-  :user     => :dobot,
-  :question => :question1
-}}
-
-Interest.fix(:interest3) {{
-  :user     => :dobot,
-  :question => :question2
-}}
-
-
-Interest.fix(:interest4) {{
-  :user     => :cored,
-  :question => :question2
-}}
+20.of { Interest.gen }                                  #create 20 interests 
+5.of  { Interest.gen(:user => User.pick(:anonymous)) }  #create 5 interests with questions for the anonymous user
