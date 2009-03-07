@@ -35,22 +35,22 @@ Question.fix(:question2) {{
 
 Interest.fix(:interest1) {{
   :user_id => User.pick(:cored).id,
-  :question_id => Question.pick(:question1)
+  :question_id => Question.pick(:question1).id
 }}
 
 Interest.fix(:interest2) {{
   :user_id => User.pick(:cored).id,
-  :question_id => Question.pick(:question2)
+  :question_id => Question.pick(:question2).id
 }}
 
 Interest.fix(:interest3) {{
   :user_id => User.pick(:molly).id,
-  :question_id => Question.pick(:question1)
+  :question_id => Question.pick(:question1).id
 }}
 
 Interest.fix(:interest4) {{
   :user_id => User.pick(:molly).id,
-  :question_id => Question.pick(:question2)
+  :question_id => Question.pick(:question2).id
 }}
 
 ##Population
