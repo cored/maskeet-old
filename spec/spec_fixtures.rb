@@ -1,39 +1,67 @@
 User.fix(:anonymous) {{
+  :id => 1,
   :login => 'anonymous',
   :first_name => 'Anonymous',
   :last_name => 'Coward'
 }}
 
-User.fix {{
-  :login =>  first_name = Randgen.first_name,
-  :last_name  =>  last_name = Randgen.last_name,
-  :login =>  "#{first_name.downcase}#{last_name[0].chr}"
+User.fix(:cored) {{
+  :id => 2,
+  :login =>  'cored',
+  :first_name =>  'Rafael',
+  :last_name =>  'George'
 }}
 
-Question.fix {{
+User.fix(:molly) {{
+  :id => 3,
+  :login => 'molly',
+  :first_name => 'Molly',
+  :last_name  => 'Grey',
+}}
+
+Question.fix(:question1) {{
+  :id => 1,
   :title => /[:sentence:]{4,10}/.gen.gsub(/\.$/, '?'),
-  :user_id   => User.pick.id,
+  :user_id   => User.pick(:cored).id,
   :body   => /[:paragraph:]/.gen
 }}
 
-Question.fix(:anonymous) {{
+Question.fix(:question2) {{
+  :id => 2,
   :title  => /[:sentence:]{4,10}/.gen.gsub(/\.$/, '?'),
   :body   => /[:paragraph:]/.gen,
-  :user_id   => User.pick(:anonymous).id
+  :user_id   => User.pick(:molly).id
 }}
 
-Interest.fix { DataMapper::Sweatshop.unique {{
-  :user     => User.pick,
-  :question => Question.pick
-}}}
+Interest.fix(:interest1) {{
+  :user_id => User.pick(:cored).id,
+  :question_id => Question.pick(:question1)
+}}
+
+Interest.fix(:interest2) {{
+  :user_id => User.pick(:cored).id,
+  :question_id => Question.pick(:question2)
+}}
+
+Interest.fix(:interest3) {{
+  :user_id => User.pick(:molly).id,
+  :question_id => Question.pick(:question1)
+}}
+
+Interest.fix(:interest4) {{
+  :user_id => User.pick(:molly).id,
+  :question_id => Question.pick(:question2)
+}}
 
 ##Population
+User.gen(:anonymous) 
+User.gen(:cored) 
+User.gen(:molly) 
 
-User.gen(:anonymous) #create the anonymous user
-5.of { User.gen }     #randomly create 5 users
+Question.gen(:question1) 
+Question.gen(:question2) 
 
-10.of { Question.gen }              #create 10 questions with random users (not the anonymous user)
-10.of { Question.gen(:anonymous) }  #create 10 questions with the anonymous user
-
-20.of { Interest.gen }                                  #create 20 interests 
-5.of  { Interest.gen(:user => User.pick(:anonymous)) }  #create 5 interests with questions for the anonymous user
+Interest.gen(:interest1)
+Interest.gen(:interest2)
+Interest.gen(:interest3)
+Interest.gen(:interest4)

@@ -1,28 +1,14 @@
 %h1
-  Questions 
+  popular questions 
 
-%table
-  %thead
-    %tr
-      %th Id
-      %th User id
-      %th Title
-      %th Body
-  %tbody    
-    %tr
-    - for question in @questions
-      %tr
-        %td
-          = question.id 
-        %td
-          = question.user 
-        %td
-          = question.title
-        %td
-          = question.body 
-        %td
-          = link_to 'Show', url(:question, question)
-        %td
-          = link_to 'Edit', url(:edit_question,  question)
+- for question in @questions
+  .question
+    .interested_block
+      .interested_mark{ :id => "mark_#{question.id}" }
+        = question.interests.size
 
-= link_to 'New', url(:new_question)
+    %h2 
+      = link_to question.title, url(:question, question)
+
+    .question_body
+      = question.body.truncate(200)
