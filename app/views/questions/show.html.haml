@@ -1,16 +1,18 @@
-%table
-  %tbody
-    %tr
-      %th Id:
-      %td= @question.id  
-    %tr
-      %th Title:
-      %td= @question.title
-    %tr
-      %th Body:
-      %td= @question.body
+.interested_block
+  .interested_mark{ :id => "mark_#{@question.id}" } 
+    = @question.interests.size
 
+%h2 
+  = @question.title 
 
-= link_to 'Edit',  url(:edit_question,  @question)
-|
-= link_to 'Back', url(:questions)
+.question_body
+  = @question.body
+
+#answers
+  - for answer in @question.answers
+    .answer
+      posted by
+      
+      /on "#{answer.created_at.strftime('%B %d, %Y')"
+      /%div
+      /  = answer.body

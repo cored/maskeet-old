@@ -5,10 +5,6 @@ class Answer
   # properties
   
   property :id,          Serial
-  
-  property :user_id,     Integer, :nullable => false
-  property :question_id, Integer, :nullable => false
-  
   property :body,        Text,    :nullable => false
 
   timestamps :at
