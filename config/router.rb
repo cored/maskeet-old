@@ -44,5 +44,6 @@ Merb::Router.prepare do
   match('/').to(:controller => 'questions', :action =>'index')
 
   # questions route
+  # TODO: Fix the problem with this routing rule
   match('/questions/:stripped_title').to(:controller => 'questions', :action => 'show').name(:show_question)
 end
