@@ -1,68 +1,64 @@
 User.fix(:anonymous) {{
-  :id  => 1,
   :login => 'anonymous',
   :first_name => 'Anonymous',
-  :last_name => 'Coward'
+  :last_name => 'Coward',
+  :password => password = 'anonymous',
+  :password_confirmation => password
 }}
 
 User.fix(:cored) {{
-  :id  => 2,
   :login =>  'cored',
   :first_name =>  'Rafael',
-  :last_name =>  'George'
+  :last_name =>  'George',
+  :password => password = 'cored',
+  :password_confirmation => password
 }}
 
 User.fix(:molly) {{
-  :id => 3,
   :login => 'molly',
   :first_name => 'Molly',
   :last_name  => 'Grey',
+  :password => password = 'molly',
+  :password_confirmation => password
 }}
 
 Question.fix(:question1) {{
-  :id => 1,
   :title => 'What shall i do tonight with my girlfriend?',
   :user   => User.pick(:cored),
   :body   => /[:paragraph:]/.gen
 }}
 
 Question.fix(:question2) {{
-  :id => 2,
   :title  => 'What can i offer to my step mother?',
   :body   => /[:paragraph:]/.gen,
   :user   => User.pick(:molly)
 }}
 
 Question.fix(:question3) {{
-  :id => 3,
   :title => 'How can i generate trafic to my blog?',
   :body  => /[:paragraph:]/.gen,
   :user  => User.pick(:anonymous)
 }}
 
 Answer.fix(:answer1) {{
-  :id => 1,
   :question => Question.pick(:question1),
   :user => User.pick(:molly),
   :body => /[:paragraph:]/.gen
 }}
 
 Answer.fix(:answer2) {{
-  :id => 2,
   :question => Question.pick(:question1),
   :user => User.pick(:cored),
   :body => /[:paragraph:]/.gen
 }}
 
 Answer.fix(:answer3) {{
-  :id => 3,
   :question => Question.pick(:question2),
   :user => User.pick(:cored),
   :body => /[:paragraph:]/.gen
 }}
 
 Answer.fix(:answer4) {{
-  :id => 4,
   :question => Question.pick(:question3),
   :user => User.pick(:cored),
   :body => /[:paragraph:]/.gen
