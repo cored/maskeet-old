@@ -1,6 +1,5 @@
 .interested_block
-  .interested_mark{ :id => "mark_#{@question.id}" } 
-    = @question.interests.size
+  = partial :interested_user, :question => @question
 
 %h2 
   = @question.title 
@@ -11,8 +10,13 @@
 #answers
   - for answer in @question.answers
     .answer
+      = answer.relevancy_up_percent
+      \% UP
+      = answer.relevancy_down_percent
+      \% DOWN
       posted by
-      
-      /on "#{answer.created_at.strftime('%B %d, %Y')"
-      /%div
-      /  = answer.body
+      = answer.user
+      on
+      = answer.created_at.strftime('%B %d, %Y')
+      %div
+        = answer.body

@@ -1,3 +1,9 @@
+User.all.destroy!
+Question.all.destroy!
+Answer.all.destroy!
+Interest.all.destroy!
+Relevancy.all.destroy!
+
 User.fix(:anonymous) {{
   :login => 'anonymous',
   :first_name => 'Anonymous',
@@ -64,6 +70,18 @@ Answer.fix(:answer4) {{
   :body => /[:paragraph:]/.gen
 }}
 
+Relevancy.fix(:relevancy1) {{
+  :answer => Answer.pick(:answer1),
+  :user   => User.pick(:cored),
+  :score  => 1
+}}
+
+Relevancy.fix(:relevancy2) {{
+  :answer => Answer.pick(:answer1),
+  :user => User.pick(:molly),
+  :score => -1
+}}
+
 Interest.fix(:interest1) {{
   :user => User.pick(:cored),
   :question => Question.pick(:question1)
@@ -97,6 +115,9 @@ Answer.gen(:answer1)
 Answer.gen(:answer2)
 Answer.gen(:answer3)
 Answer.gen(:answer4)
+
+Relevancy.gen(:relevancy1)
+Relevancy.gen(:relevancy2)
 
 Interest.gen(:interest1)
 Interest.gen(:interest2)

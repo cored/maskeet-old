@@ -6,8 +6,8 @@ class Questions < Application
     display @questions
   end
 
-  def show(id)
-    @question = Question.get(id)
+  def show(stripped_title)
+    @question = Question.first(:stripped_title => stripped_title)
     raise NotFound unless @question
     display @question
   end

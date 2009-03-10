@@ -4,11 +4,10 @@
 - for question in @questions
   .question
     .interested_block
-      .interested_mark{ :id => "mark_#{question.id}" }
-        = question.interests.size
+      = partial :interested_user, :question => question
 
     %h2 
-      = link_to question.title, url(:question, question)
+      = link_to question.title, url(:show_question, :stripped_title => question.stripped_title)
 
     .question_body
       = question.body.truncate(200)

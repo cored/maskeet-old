@@ -29,5 +29,9 @@ class User
   has n, :relevancies
   has n, :interests
   has n, :questions, :through => :interests
+   
+  def to_s
+    "#{self.first_name} #{self.last_name}"
+  end 
 
 end

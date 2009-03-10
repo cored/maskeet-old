@@ -42,4 +42,7 @@ Merb::Router.prepare do
   
   # Change this for your home page to be available at /
   match('/').to(:controller => 'questions', :action =>'index')
+
+  # questions route
+  match('/questions/:stripped_title').to(:controller => 'questions', :action => 'show').name(:show_question)
 end
