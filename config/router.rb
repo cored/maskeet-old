@@ -27,7 +27,7 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
-  resources :questions
+  resources :questions, :keys => [:stripped_title]
   # RESTful routes
   # resources :posts
   
@@ -43,7 +43,4 @@ Merb::Router.prepare do
   # Change this for your home page to be available at /
   match('/').to(:controller => 'questions', :action =>'index')
 
-  # questions route
-  # TODO: Fix the problem with this routing rule
-  match('/questions/:stripped_title').to(:controller => 'questions', :action => 'show').name(:show_question)
 end

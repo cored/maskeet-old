@@ -7,7 +7,7 @@
       = partial :interested_user, :question => question
 
     %h2 
-      = link_to question.title, url(:show_question, :stripped_title => question.stripped_title)
+      = link_to question.title, url(:question, :stripped_title => question.stripped_title)
 
     .question_body
       = question.body.truncate(200)
