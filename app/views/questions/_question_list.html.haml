@@ -1,0 +1,13 @@
+- for question in @questions
+  .question
+    .interested_block
+      = partial :interested_user, :question => question
+
+    %h2 
+      = link_to question.title, url(:question, :stripped_title => question.stripped_title)
+
+    .question_body
+      = question.body.truncate(200)
+
+#question_pager
+  = paginate @questions

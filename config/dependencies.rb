@@ -1,5 +1,5 @@
 # dependencies are generated using a strict version, don't forget to edit the dependency versions when upgrading.
-merb_gems_version = "1.0.8.1"
+merb_gems_version = "1.0.9"
 dm_gems_version   = "0.9.11"
 
 # For more information about each component, please read http://wiki.merbivore.com/faqs/merb_components
@@ -22,3 +22,4 @@ dependency "dm-timestamps", dm_gems_version
 dependency "dm-types", dm_gems_version        
 dependency "dm-validations", dm_gems_version  
 dependency "dm-sweatshop", dm_gems_version
+dependency "dm-pagination", "0.2.0.0"

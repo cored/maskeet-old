@@ -10,6 +10,11 @@
   %body
     %div#header 
       %ul
+        - if session.user
+          %li= link_to 'sign out', url(:logout)
+          %li= link_to session.user.login, '#'
+        - else
+          %li= link_to 'sign in', url(:login) 
         %li= link_to 'about', url(:questions)
       %h1= link_to 'logo', url(:questions)
     %div#content  

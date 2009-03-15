@@ -31,4 +31,12 @@ class Question
     self.stripped_title = strip_text(self.title)
   end 
 
+  def self.homepage_pager(page = 1)
+    self.all(:order => [:interested_users.desc]).paginate(:page => page, :per_page => 2)
+  end 
+
+  def self.question_from_title(title)
+    self.first(:stripped_title => title)
+  end 
+
 end
