@@ -27,6 +27,10 @@
 
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
+  match('/questions/recent(/:page)').to(:controller => 'questions', :action => 'recent').name('recent_questions')
+  match('/questions/add').to(:controller => 'questions', :action => 'add').name('question_add')
+  match('/users/show/:id').to(:controller => 'users', :action => 'show').name('show_user')
+  match('/answers/recent(/:page)').to(:controller => 'answers', :action => 'recent').name('recent_answers')
   resources :questions, :keys => [:stripped_title]
   # RESTful routes
   # resources :posts

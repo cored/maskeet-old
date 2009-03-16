@@ -14,6 +14,7 @@ dependency "merb-auth-more", merb_gems_version
 dependency "merb-auth-slice-password", merb_gems_version
 dependency "merb-param-protection", merb_gems_version
 dependency "merb-exceptions", merb_gems_version
+dependency "merb-parts", "0.9.8"
  
 dependency "dm-core", dm_gems_version         
 dependency "dm-aggregates", dm_gems_version   

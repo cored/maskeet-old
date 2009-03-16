@@ -15,8 +15,8 @@
       = answer.relevancy_down_percent
       \% DOWN
       posted by
-      = answer.user
+      = link_to answer.user, url(:show_user, :id => answer.user.id)
       on
-      = answer.created_at.strftime('%B %d, %Y')
+      = answer.created_at.strftime('%B %d, %Y %H:%M %p')
       %div
         = answer.body

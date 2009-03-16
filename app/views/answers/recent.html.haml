@@ -1,0 +1,16 @@
+%h1 recent answers
+
+#answers
+  - for answer in @answers
+    .answer
+      %h2= link_to answer.question.title, url(:questions, :stripped_title => answer.question.stripped_title)
+      = answer.relevancies.size 
+      points
+      posted by 
+      = link_to answer.user, '#'
+      on
+      = answer.created_at.strftime('%B %m, %Y')
+      %div
+        = answer.body
+#question_pager
+  = paginate @answers

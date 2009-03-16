@@ -39,4 +39,8 @@ class Question
     self.first(:stripped_title => title)
   end 
 
+  def self.recent_pager(page)
+    self.all(:order => [:created_at.desc]).paginate(:page => page, :per_page => 2)
+  end 
+
 end

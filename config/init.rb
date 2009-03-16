@@ -21,4 +21,9 @@ end
  
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
+  Merb::Plugins.config[:dm_pagination] = {
+    :prev_label => "<img src='/images/previous.gif' />",
+    :next_label => "<img src='/images/next.gif' />",
+    :truncate => "..."
+  }
 end

@@ -1,0 +1,20 @@
+%h1= "#{@user}'s profile"
+
+%h2 Interests
+
+%ul
+  - for interest in @user.interests
+    %li= link_to interest.question.title, url(:questions, :stripped_title => interest.question.stripped_title)
+
+%h2 Contributions
+
+%ul
+  - for answer in @user.answers
+    %li= link_to answer.question.title, url(:questions, :stripped_title => answer.question.stripped_title)
+    = answer.body
+
+%h2 Questions
+
+%ul
+  - for question in @user.questions
+    %li= link_to question.title, url(:questions, :stripped_title => question.stripped_title)

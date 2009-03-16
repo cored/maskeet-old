@@ -12,7 +12,7 @@
       %ul
         - if session.user
           %li= link_to 'sign out', url(:logout)
-          %li= link_to session.user.login, '#'
+          %li= link_to session.user.login, url(:show_user, :id => session.user.id)
         - else
           %li= link_to 'sign in', url(:login) 
         %li= link_to 'about', url(:questions)
@@ -23,4 +23,5 @@
         %div.verticalalign
         
       %div#content_bar
+        = part SidebarPart => :index
         %div.verticalalign 

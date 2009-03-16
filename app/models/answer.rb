@@ -29,4 +29,8 @@ class Answer
     total > 0 ? sprintf('%.0f', self.relevancy_down * 100 / total) : 0 
   end 
 
+  def self.recent_pager(page)
+    self.all(:order => [:created_at.desc]).paginate(:page => page, :per_page => 2)
+  end 
+
 end

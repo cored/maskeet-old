@@ -141,3 +141,9 @@ div#footer
   width: 780px;
   background-color: #bbb;
 }
+
+/* Form error */ 
+.error 
+{
+  color: #d8732f;
+}
