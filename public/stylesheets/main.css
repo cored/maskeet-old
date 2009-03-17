@@ -147,3 +147,15 @@ div#footer
 {
   color: #d8732f;
 }
+
+/* Progress indicator */
+div#indicator 
+{
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  left: 10px;
+  top: 10px;
+  z-index: 900;
+  background: url(/images/indicator.gif) no-repeat 0 0; 
+}

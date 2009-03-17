@@ -8,6 +8,7 @@
     %link{ :href => "/stylesheets/layout.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
     %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }
   %body
+    #indicator{ :style => "display: none" }
     %div#header 
       %ul
         - if session.user
