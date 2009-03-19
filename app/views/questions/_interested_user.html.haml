@@ -1,2 +1,4 @@
 .interested_mark{ :id => "mark_#{question.id}" }
   = question.interested_users
+
+= link_to_interested_user(question)
