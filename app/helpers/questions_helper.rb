@@ -6,7 +6,7 @@ module Merb
         if !interested.nil?
           return 'interested!' 
         else
-          return link_to 'interested?', url(:user_interested, :id => question.id), :rel => "mark_#{question.id}", :class => 'remote'
+          return link_to 'interested?', url(:user_interested, :id => question.id), :class => 'remote'
         end
       else
         link_to 'interested?', url(:login)
