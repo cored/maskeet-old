@@ -18,7 +18,7 @@ class Users < Application
     interest.question = @question
     interest.user = session.user
     interest.save
-    render @question, :layout => false 
+    display @question 
   end 
   
 end

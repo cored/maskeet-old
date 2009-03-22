@@ -7,7 +7,7 @@
     %link{ :href => "/stylesheets/master.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
     %link{ :href => "/stylesheets/layout.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
     %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }
-    %script{ :type => 'text/javascript', :src =>  '/javascripts/jquery.js' } 
+    = js_include_tag 'jquery', 'application'
   %body
     #indicator{ :style => "display: none" }
     %div#header 
