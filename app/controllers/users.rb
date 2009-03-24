@@ -15,11 +15,11 @@ class Users < Application
     @question = Question.get(id)
     raise NotFound unless @question
 
-    #interest = Interest.new
-    #interest.question = @question
-    #interest.user = session.user
-    #interest.save
-    display @question 
+    interest = Interest.new
+    interest.question = @question
+    interest.user = session.user
+    interest.save
+    @question.interested_users.to_s 
   end 
   
 end
