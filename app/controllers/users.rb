@@ -11,7 +11,6 @@ class Users < Application
   end 
 
   def interested(id) 
-    provides :js, :html
     @question = Question.get(id)
     raise NotFound unless @question
 
@@ -19,7 +18,7 @@ class Users < Application
     interest.question = @question
     interest.user = session.user
     interest.save
-    @question.interested_users.to_s 
+    display @question, :layout => false
   end 
   
 end

@@ -10,7 +10,7 @@
     = js_include_tag 'jquery', 'application'
   %body
     #indicator{ :style => "display: none" }
-    %div#header 
+    #header 
       %ul
         - if session.user
           %li= link_to 'sign out', url(:logout)
@@ -19,11 +19,24 @@
           %li= link_to 'sign in', url(:login) 
         %li= link_to 'about', url(:questions)
       %h1= link_to 'logo', url(:questions)
-    %div#content  
-      %div#content_main 
+    #login{ :style => 'display: none' }
+      %h2 Please sign-in first 
+
+      = link_to 'cancel', '#', :id => 'cancel_login'
+
+      %form{ :action => "#{url(:login)}", :method => "POST" }
+        %input{ :type => "hidden", :name => "_method", :value => "PUT" }
+        login:  
+        = text_field :login
+        password:
+        = text_field :password
+        = submit "login"
+
+    #content  
+      #content_main 
         = catch_content :for_layout
-        %div.verticalalign
+        .verticalalign
         
-      %div#content_bar
+      #content_bar
         = part SidebarPart => :index
-        %div.verticalalign 
+        .verticalalign 

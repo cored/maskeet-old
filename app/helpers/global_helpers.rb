@@ -12,7 +12,7 @@ module Merb
                          :rel => question.id)
         end
       else
-        link_to 'interested?', url(:login)
+        link_to 'interested?', url(:login), :class => 'login_form'
       end
     end 
   end

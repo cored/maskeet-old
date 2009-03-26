@@ -1,6 +1,6 @@
 - for question in @questions
   .question
-    .interested_block
+    .interested_block{ :id => "block_#{question.id}" }
       = partial :interested_user, :question => question
 
     %h2 
