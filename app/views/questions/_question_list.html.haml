@@ -8,11 +8,11 @@
 
     .question_body
       asked by
-      = link_to question.user, url(:show_user, :id => question.user.id)
+      = link_to question.user, url(:user_profile, :login => question.user.login)
       on 
       = question.created_at.strftime('%B %m, %Y %H:%M %p')
       %br
-      = question.body.truncate(200)
+      = question.html_body.truncate(200)
 
 #question_pager
   = paginate @questions

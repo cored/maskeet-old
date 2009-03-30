@@ -5,7 +5,7 @@
   = @question.title 
 
 .question_body
-  = @question.body
+  = @question.html_body
 
 #answers
   - for answer in @question.answers
@@ -15,7 +15,7 @@
       = answer.relevancy_down_percent
       \% DOWN
       posted by
-      = link_to answer.user, url(:show_user, :id => answer.user.id)
+      = link_to answer.user, url(:user_profile, :login => answer.user.login)
       on
       = answer.created_at.strftime('%B %d, %Y %H:%M %p')
       %div

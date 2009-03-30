@@ -4,8 +4,8 @@ class Users < Application
     render
   end
 
-  def show(id)
-    @user = User.get(id)
+  def show(login)
+    @user = User.first(:login => login)
     raise NotFound unless @user
     display @user
   end 

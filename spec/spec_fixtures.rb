@@ -31,12 +31,12 @@ User.fix(:molly) {{
 Question.fix(:question1) {{
   :title => 'What shall i do tonight with my girlfriend?',
   :user   => User.pick(:cored),
-  :body   => /[:paragraph:]/.gen
+  :body   => "We shall meet in front of the __Dunkin'Donuts__ before dinner, and i haven't the slightest idea of what i can do with her. She's not interested in _programming_, _space opera movies_ nor _insects_. She's kinda cute, so I __really__ need to find something that will keep her to my side for another evening."
 }}
 
 Question.fix(:question2) {{
   :title  => 'What can i offer to my step mother?',
-  :body   => /[:paragraph:]/.gen,
+  :body   => "My stepmother has everything a stepmother is usally offered (watch, vacuum cleaner, earrings, [delicious](http://delicious.com) account). Her birthday comes next week, I am broke, and i know that if i don't offer her something *sweet*, my girlfriend won't look at me in the eyes for another month.",
   :user   => User.pick(:molly)
 }}
 

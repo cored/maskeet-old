@@ -8,6 +8,7 @@ class Question
   property :stripped_title, String
   property :interested_users, Integer, :default => 0
   property :body,  Text
+  property :html_body, Text
 
   timestamps :at
 
@@ -25,10 +26,16 @@ class Question
   end 
 
   #hooks
-  before :save, :save_stripped_title
+  before :save, :save_stripped_title 
+  before :save, :save_html_body
 
   def save_stripped_title
     self.stripped_title = strip_text(self.title)
+  end 
+
+  def save_html_body
+    require 'bluecloth'
+    self.html_body = BlueCloth.new(self.body).to_html
   end 
 
   def self.homepage_pager(page = 1)
