@@ -13,8 +13,21 @@ class Questions < Application
     display @questions
   end 
 
-  def add
+  def new
+    @question = Question.new
+    display @question
+  end 
 
+  def create(question)
+    @question = Question.new(question)
+    @question.user = session.user
+    if @question.save
+      session.user.is_interested_in(@question)
+      redirect url(:question, :stripped_title => @question.stripped_title)
+    else
+      message[:error] = "Question failed to be created"
+      render :add
+    end
   end 
 
   def show(stripped_title)

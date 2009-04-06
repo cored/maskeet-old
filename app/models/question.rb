@@ -4,10 +4,10 @@ class Question
   
   # properties
   property :id,    Serial
-  property :title, String, :nullable => false, :length => (1..255)
+  property :title, String, :nullable => false 
   property :stripped_title, String
   property :interested_users, Integer, :default => 0
-  property :body,  Text
+  property :body,  Text, :nullable => false
   property :html_body, Text
 
   timestamps :at
@@ -28,6 +28,9 @@ class Question
   #hooks
   before :save, :save_stripped_title 
   before :save, :save_html_body
+
+  #validations
+  validates_length :body, :min => 10
 
   def save_stripped_title
     self.stripped_title = strip_text(self.title)

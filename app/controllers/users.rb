@@ -14,10 +14,7 @@ class Users < Application
     @question = Question.get(id)
     raise NotFound unless @question
 
-    interest = Interest.new
-    interest.question = @question
-    interest.user = session.user
-    interest.save
+    session.user.is_interested_in(@question)
     display @question, :layout => false
   end 
   

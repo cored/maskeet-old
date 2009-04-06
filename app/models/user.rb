@@ -34,4 +34,11 @@ class User
     "#{self.first_name} #{self.last_name}"
   end 
 
+  def is_interested_in(question)
+    interest = Interest.new
+    interest.question = question
+    interest.user = self
+    interest.save
+  end 
+
 end

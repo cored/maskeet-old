@@ -14,7 +14,7 @@
       %ul
         - if session.user
           %li= link_to 'sign out', url(:logout)
-          %li= link_to session.user.login, url(:show_user, :id => session.user.id)
+          %li= link_to session.user.login, url(:user_profile, :login => session.user.login)
         - else
           %li= link_to 'sign in', url(:login) 
         %li= link_to 'about', url(:questions)

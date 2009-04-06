@@ -12,8 +12,17 @@ module Merb
                          :rel => question.id)
         end
       else
-        link_to 'interested?', url(:login), :class => 'login_form'
+        link_to_login 'interested?'
+      end
+    end 
+
+    def link_to_login(name, uri = nil)
+      if ( uri && session.user )
+        return link_to(name, uri)
+      else
+        return link_to(name, url(:login), :class => 'login_form')
       end
     end 
   end
+
 end

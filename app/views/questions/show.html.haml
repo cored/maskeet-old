@@ -10,13 +10,19 @@
 #answers
   - for answer in @question.answers
     .answer
-      = answer.relevancy_up_percent
-      \% UP
-      = answer.relevancy_down_percent
-      \% DOWN
-      posted by
-      = link_to answer.user, url(:user_profile, :login => answer.user.login)
-      on
-      = answer.created_at.strftime('%B %d, %Y %H:%M %p')
-      %div
-        = answer.body
+      = partial 'answers/answer', :answer => answer
+  .answer{:id => "add_answer"}
+    = form_for('', :action => url(:add_answer), :id => "answer_form") do
+      .form-row
+        - if session.user
+          = session.user.login
+        - else
+          Anonymous Coward
+          = link_to_login('login')
+
+      .form-row
+        = text_area :body, :label => "Your answer:"
+
+      .submit-row
+        = hidden_field :name => 'question_id', :value => @question.id
+        = submit "answer it"

@@ -1,0 +1,10 @@
+= answer.relevancy_up_percent
+\% UP
+= answer.relevancy_down_percent
+\% DOWN
+posted by
+= link_to answer.user, url(:user_profile, :login => answer.user.login)
+on
+= answer.created_at.strftime('%B %d, %Y %H:%M %p')
+%div
+  = answer.body
