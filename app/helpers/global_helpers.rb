@@ -23,6 +23,11 @@ module Merb
         return link_to(name, url(:login), :class => 'login_form')
       end
     end 
+
+    def link_to_feed(name, uri)
+      link_to(image_tag('/images/rss.gif', :alt => name, :title => name, :align => 'absmiddle'), url(uri)) 
+    end 
+
   end
 
 end

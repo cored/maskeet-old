@@ -1,6 +1,12 @@
 = link_to_login 'ask a new question', url(:question_add)
 
 %ul
-  %li= link_to 'popular questions', url(:questions)
-  %li= link_to 'latest questions', url(:recent_questions)
-  %li= link_to 'latest answers', url(:recent_answers)
+  %li 
+    = link_to 'popular questions', url(:questions)
+    = link_to_feed 'popular questions', :popular_questions_feed
+  %li 
+    = link_to 'latest questions', url(:recent_questions)
+    = link_to_feed 'latest questions', :recent_questions_feed
+  %li
+    = link_to 'latest answers', url(:recent_answers)
+    = link_to_feed 'latest answers', :recent_answers_feed

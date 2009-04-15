@@ -33,6 +33,9 @@ Merb::Router.prepare do
   match('/users/interested/:id').to(:controller => 'users', :action => 'interested').name('user_interested')
   match('/answers/recent(/:page)').to(:controller => 'answers', :action => 'recent').name('recent_answers')
   match('/answers/new/').to(:controller => 'answers', :action => 'new').name('add_answer')
+  match('/feed/popular').to(:controller => 'feed', :action => 'popular').name('popular_questions_feed')
+  match('/feed/recent').to(:controller => 'feed', :action => 'recent').name('recent_questions_feed')
+  match('/feed/answers').to(:controller => 'feed', :action => 'answers').name('recent_answers_feed')
   resources :questions, :keys => [:stripped_title]
   # RESTful routes
   # resources :posts

@@ -1,0 +1,13 @@
+!!! XML
+%rss{ :version => "2.0" }
+  %channel
+    %title Latest answers
+    %link= absolute_url(:recent_answers)
+    %description Latest answers in maskeet
+    %language en-us
+    - for answer in @answers
+      %item
+        %description= answer.body
+        %link= absolute_url(:questions, :stripped_title => answer.question.stripped_title)
+        %pubDate= answer.created_at
+        %guid= answer.id

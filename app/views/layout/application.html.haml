@@ -7,6 +7,7 @@
     %link{ :href => "/stylesheets/master.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
     %link{ :href => "/stylesheets/layout.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }/
     %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen", :type => "text/css", :charset => "utf-8" }
+    %link{ :href => absolute_url(:popular_questions_feed), :rel => "alternate", :type => "application/rss+xml" }
     = js_include_tag 'jquery', 'application'
   %body
     #indicator{ :style => "display: none" }
