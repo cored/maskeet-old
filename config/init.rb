@@ -26,4 +26,11 @@ Merb::BootLoader.after_app_loads do
     :next_label => "<img src='/images/next.gif' />",
     :truncate => "..."
   }
+  Merb::Mailer.config = {
+    :host => 'mail.gmail.com',
+    :port => '573',
+    :user => 'george.rafael@gmail.com',
+    :pass => 'yfu37samnx',
+    :auth => :plain
+  }
 end

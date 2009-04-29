@@ -16,6 +16,7 @@ User.fix(:cored) {{
   :login =>  'cored',
   :first_name =>  'Rafael',
   :last_name =>  'George',
+  :email => 'george.rafael@gmail.com',
   :password => password = 'cored',
   :password_confirmation => password
 }}
@@ -24,6 +25,7 @@ User.fix(:molly) {{
   :login => 'molly',
   :first_name => 'Molly',
   :last_name  => 'Grey',
+  :email => 'mollyme@gmail.com',
   :password => password = 'molly',
   :password_confirmation => password
 }}

@@ -19,6 +19,7 @@ class User
   property :login,      String
   property :first_name, String
   property :last_name,  String
+  property :email,      String
 
   timestamps :at
 

@@ -36,6 +36,7 @@ Merb::Router.prepare do
   match('/feed/popular').to(:controller => 'feed', :action => 'popular').name('popular_questions_feed')
   match('/feed/recent').to(:controller => 'feed', :action => 'recent').name('recent_questions_feed')
   match('/feed/answers').to(:controller => 'feed', :action => 'answers').name('recent_answers_feed')
+  match('/users/passwordrequest(/:email)').to(:controller => 'users', :action => 'passwordrequest').name('user_require_password')
   resources :questions, :keys => [:stripped_title]
   # RESTful routes
   # resources :posts
