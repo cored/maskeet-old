@@ -27,10 +27,10 @@ Merb::BootLoader.after_app_loads do
     :truncate => "..."
   }
   Merb::Mailer.config = {
-    :host => 'mail.gmail.com',
-    :port => '573',
-    :user => 'george.rafael@gmail.com',
-    :pass => 'yfu37samnx',
+    :host => 'smtp.gmail.com',
+    :port => '587',
+    :user => '',
+    :pass => '',
     :auth => :plain
   }
 end
